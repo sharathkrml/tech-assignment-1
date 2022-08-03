@@ -1,23 +1,21 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 import { DeployFunction } from "hardhat-deploy/types"
+import { deployContract } from "../helpers/deployContract"
 import verify from "../utils/verify"
-import { network } from "hardhat"
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
     const {
-        deployments: { deploy },
+        deployments: { deploy, log },
         getNamedAccounts,
     } = hre
     const { deployer } = await getNamedAccounts()
-    const treasury = await deploy("Treasury", {
+    const token = await deploy("Token", {
         from: deployer,
-        args: [],
+        args: ["token2", "TK2"],
         log: true,
-        waitConfirmations: network.config.chainId == 31337 ? 0 : 6,
+        waitConfirmations: 6,
     })
-    if (network.config.chainId != 31337) {
-        console.log("verifying.......")
-        await verify(treasury.address, [])
-    }
+    console.log("verifying.......")
+    await verify(token.address, ["token2", "TK2"])
 }
 export default func
-func.tags = ["Treasury", "all"]
+func.tags = ["all"]

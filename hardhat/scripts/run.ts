@@ -43,50 +43,6 @@ const interactWithContracts = async () => {
             await tx.wait(1)
         })
     })
-
-    // console.log("Interacting with Treasury")
-    // console.log("------------------------------")
-    // console.log(
-    //     `${accounts[0].address} deplositing 1000 and withdrawing 400,200 ,${token1.address}`
-    // )
-    // let tx = await treasury.connect(accounts[0]).deposit(token1.address, 1000)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[0]).withdraw(token1.address, 400)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[0]).withdraw(token1.address, 200)
-    // await tx.wait(1)
-    // console.log("-------------------------------")
-    // console.log(`${accounts[0].address} deplositing 500 and withdrawing 100,300 ,${token2.address}`)
-    // tx = await treasury.connect(accounts[0]).deposit(token1.address, 500)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[0]).withdraw(token1.address, 100)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[0]).withdraw(token1.address, 300)
-    // await tx.wait(1)
-    // console.log("-------------------------------")
-
-    // console.log(
-    //     `${accounts[1].address} deplositing 1000 and withdrawing 300,700 ,${token1.address}`
-    // )
-    // tx = await treasury.connect(accounts[1]).deposit(token1.address, 1000)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[1]).withdraw(token1.address, 300)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[1]).withdraw(token1.address, 200)
-    // await tx.wait(1)
-    // console.log("-------------------------------")
-    // console.log(
-    //     `${accounts[1].address} deplositing 500,500 and withdrawing 200,700 ,${token2.address}`
-    // )
-    // tx = await treasury.connect(accounts[1]).deposit(token1.address, 500)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[1]).deposit(token1.address, 500)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[1]).withdraw(token1.address, 200)
-    // await tx.wait(1)
-    // tx = await treasury.connect(accounts[1]).withdraw(token1.address, 700)
-    // await tx.wait(1)
-    // console.log("-------------------------------")
 }
 interactWithContracts().catch((error) => {
     console.error(error)

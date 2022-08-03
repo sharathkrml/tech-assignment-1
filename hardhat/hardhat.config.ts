@@ -27,6 +27,7 @@ const config: HardhatUserConfig = {
     solidity: "0.8.4",
     networks: {
         goerli: {
+            chainId: 5,
             url: process.env.GOERLI_URL || "",
             accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
         },

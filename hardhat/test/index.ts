@@ -39,6 +39,13 @@ describe("Treasury", function () {
             await token1.approve(treasury.address, 1000)
             await token2.approve(treasury.address, 1000)
         })
+        it("Reverts if user deploy more Token then they have", async () => {
+            let balance = await token1.balanceOf(user1.address)
+            // attempts depositing more than balance
+            await expect(treasury.deposit(token1.address, balance.add(1))).to.rejectedWith(
+                "ERC20: insufficient allowance"
+            )
+        })
         it("Revert deposit amount zero", async () => {
             await expect(
                 treasury.connect(user1).deposit(token1.address, 0)
