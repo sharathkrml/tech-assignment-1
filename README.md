@@ -49,11 +49,11 @@ npm run tests
 
 Deploy contracts to a goerli
 
-Treasury Contract: (https://goerli.etherscan.io/address/0x8f672445adb4d4a98ce99544594529703bfc79ef)[0x8f672445adb4d4a98ce99544594529703bfc79ef]
+Treasury Contract: [0x8f672445adb4d4a98ce99544594529703bfc79ef](https://goerli.etherscan.io/address/0x8f672445adb4d4a98ce99544594529703bfc79ef)
 
-Token1 :
-(https://goerli.etherscan.io/address/0x60F0f7d41c94555a920D2FC89afe4C65C2FAA935)[0x60F0f7d41c94555a920D2FC89afe4C65C2FAA935]
-Token2 :(https://goerli.etherscan.io/address/0x12BAa2F6487d9f5Aa7EdDFC0C79e09d5bdf6F70D)[0x12BAa2F6487d9f5Aa7EdDFC0C79e09d5bdf6F70D]
+Token1 : [0x60F0f7d41c94555a920D2FC89afe4C65C2FAA935](https://goerli.etherscan.io/address/0x60F0f7d41c94555a920D2FC89afe4C65C2FAA935)
+
+Token2 : [0x12BAa2F6487d9f5Aa7EdDFC0C79e09d5bdf6F70D](https://goerli.etherscan.io/address/0x12BAa2F6487d9f5Aa7EdDFC0C79e09d5bdf6F70D)
 
 # Technical Goals - Subgraph
 
