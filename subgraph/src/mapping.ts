@@ -27,9 +27,9 @@ export function handleDeposit(event: DepositEvent): void {
   let userBalance = UserBalance.load(userBalanceId);
   if (userBalance == null) {
     userBalance = new UserBalance(userBalanceId);
-    userBalance.balance = event.params.amount;
+    userBalance.amount = event.params.amount;
   } else {
-    userBalance.balance = userBalance.balance.plus(event.params.amount);
+    userBalance.amount = userBalance.amount.plus(event.params.amount);
   }
   userBalance.user = user.id;
   userBalance.token = token.id;
@@ -61,7 +61,7 @@ export function handleWithdraw(event: WithdrawEvent): void {
   if (userBalance == null) {
     userBalance = new UserBalance(userBalanceId);
   }
-  userBalance.balance = userBalance.balance.minus(event.params.amount);
+  userBalance.amount = userBalance.amount.minus(event.params.amount);
   userBalance.user = user.id;
   userBalance.token = token.id;
   userBalance.save();
