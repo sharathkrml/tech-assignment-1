@@ -17,6 +17,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Deposit
+        - Withdraw
       abis:
         - name: Treasury
           file: ./abis/Treasury.json
@@ -25,4 +26,6 @@ dataSources:
       eventHandlers:
         - event: Deposit(address,address,uint256)
           handler: handleDeposit
+        - event: Withdraw(address,address,uint256)
+          handler: handleWithdraw
       file: ./src/mapping.ts

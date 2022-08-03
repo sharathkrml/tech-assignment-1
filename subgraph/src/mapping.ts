@@ -37,3 +37,34 @@ export function handleDeposit(event: DepositEvent): void {
   token.save();
   user.save();
 }
+export function handleWithdraw(event: WithdrawEvent): void {
+  //  event Withdraw(address receiver, address token, uint256 amount);
+
+  let userId = event.params.receiver;
+  let user = User.load(userId);
+  if (user == null) {
+    user = new User(userId);
+  }
+  let tokenId = event.params.token;
+  let token = Token.load(tokenId);
+  if (token == null) {
+    token = new Token(tokenId);
+  }
+  let tokenContract = ERC20.bind(event.params.token);
+  token.decimals = BigInt.fromI32(tokenContract.decimals());
+  token.symbol = tokenContract.symbol();
+  token.name = tokenContract.name();
+
+  let userBalanceId =
+    event.params.receiver.toHexString() + event.params.token.toHexString();
+  let userBalance = UserBalance.load(userBalanceId);
+  if (userBalance == null) {
+    userBalance = new UserBalance(userBalanceId);
+  }
+  userBalance.balance = userBalance.balance.minus(event.params.amount);
+  userBalance.user = user.id;
+  userBalance.token = token.id;
+  userBalance.save();
+  token.save();
+  user.save();
+}
