@@ -61,6 +61,8 @@ Token2 : [0x12BAa2F6487d9f5Aa7EdDFC0C79e09d5bdf6F70D](https://goerli.etherscan.i
 - Design schema is a way that it's easy to query user's active deposits.
 - Deploy subgraph on The Graph hosted service.
 
+Subgraph deployed to : [Treasury-Airstack](https://thegraph.com/hosted-service/subgraph/sharathkrml/treasury-airstack)
+
 # Scoring Criteria
 
 - Solidity Understanding
