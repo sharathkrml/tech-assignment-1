@@ -9,17 +9,24 @@ contract Treasury {
 
     mapping(address => mapping(address => uint256)) public userBalances;
 
-    event Deposit(address sender, address token, uint amount);
+    event Deposit(address sender, address token, uint256 amount);
+    event Withdraw(address receiver, address token, uint256 amount);
 
-    function deposit(address token, uint amount) public returns (string memory) {
-        userBalances[msg.sender][token] = amount;
-        string memory fixMe = "please";
+    function deposit(address token, uint256 amount) public {
+        require(amount > 0, "amount must be greater than zero");
+        userBalances[msg.sender][token] += amount;
+        IERC20(token).transferFrom(msg.sender, address(this), amount);
         emit Deposit(msg.sender, token, amount);
-        return fixMe;
     }
 
-    function withdraw(uint amount) public pure returns (string memory) {
-        string memory fixMe = "please";
-        return fixMe;
+    function withdraw(address token, uint256 amount) public {
+        require(amount > 0, "amount must be greater than zero");
+        require(
+            userBalances[msg.sender][token] > amount,
+            "insufficient balance"
+        );
+        userBalances[msg.sender][token] -= amount;
+        IERC20(token).transfer(msg.sender, amount);
+        emit Withdraw(msg.sender, token, amount);
     }
 }
